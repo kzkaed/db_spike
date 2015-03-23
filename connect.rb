@@ -10,17 +10,15 @@ class Connect
   attr_accessor :items, :item_count
 
   def create_table
-
-      DB.create_table :items do
-        primary_key :id
-        String :name
-        Float :price
-      end
+    DB.create_table :items do
+      primary_key :id
+      String :name
+      Float :price
+    end
   end
 
   def items
     items = DB[:items]
-
 
     items.insert(:name => 'abc', :price => rand * 100)
     items.insert(:name => 'def', :price => rand * 100)
@@ -35,4 +33,4 @@ class Connect
     DB.drop_table :items
   end
 
-  end
+end
